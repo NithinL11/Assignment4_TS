@@ -24,4 +24,20 @@ describe('calculateTotalCost', () => {
   test('should return 0 when both costs are 0', () => {
     expect(calculateTotalCost(0, 0)).toBe(0);
   });
+
+  test('should handle decimal values correctly', () => {
+    expect(calculateTotalCost(25.5, 74.5)).toBeCloseTo(100);
+    expect(calculateTotalCost(99.99, 0.01)).toBeCloseTo(100);
+  });
+
+  test('should return NaN for non-numeric inputs', () => {
+    expect(calculateTotalCost("abc" as any, 100)).toBeNaN();
+    expect(calculateTotalCost(100, "xyz" as any)).toBeNaN();
+  });
+
+  test('should return NaN for null, undefined, or empty input', () => {
+    expect(calculateTotalCost(null as any, 100)).toBeNaN();
+    expect(calculateTotalCost(undefined as any, 100)).toBeNaN();
+    expect(calculateTotalCost("" as any, 100)).toBeNaN();
+  });
 });
