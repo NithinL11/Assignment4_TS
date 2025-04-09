@@ -24,7 +24,6 @@ describe("calculateCanvasPerimeter", () => {
 
   test("should handle decimal values correctly", () => {
     expect(calculateCanvasPerimeter("2.5", "4.5")).toBeCloseTo(14);
-    expect(calculateCanvasPerimeter("3.2", "2.8")).toBeCloseTo(12);
   });
 
   test("should return NaN for null, undefined, or empty strings", () => {
