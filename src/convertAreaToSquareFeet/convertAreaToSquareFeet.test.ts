@@ -16,4 +16,20 @@ describe('convertAreaToSquareFeet', () => {
     expect(convertAreaToSquareFeet(-200)).toBeCloseTo(-2152.78);
     expect(convertAreaToSquareFeet(-150)).toBeCloseTo(-1614.585);
   });
+
+  test('should handle decimal values correctly', () => {
+    expect(convertAreaToSquareFeet(2.5)).toBeCloseTo(26.90975);
+    expect(convertAreaToSquareFeet(3.6)).toBeCloseTo(38.82604);
+  });
+
+  test('should return NaN for non-numeric values', () => {
+    expect(convertAreaToSquareFeet("abc" as any)).toBeNaN();
+    expect(convertAreaToSquareFeet("123" as any)).toBeNaN();
+  });
+
+  test('should return NaN for null, undefined, or empty string', () => {
+    expect(convertAreaToSquareFeet(null as any)).toBeNaN();
+    expect(convertAreaToSquareFeet(undefined as any)).toBeNaN();
+    expect(convertAreaToSquareFeet("" as any)).toBeNaN();
+  });
 });
