@@ -1,13 +1,27 @@
-import calculateCanvasSize from "./calculateCanvasSize";
-import paintRequiredCalculator from "./paintRequiredCalculator";
+import calculateCanvasSize from './calculateCanvasSize';
+import calculateCanvasDiagonal from './calculateCanvasDiagonal';
+import estimatePaintingTime from './estimatePaintingTime';
+import paintRequiredForMultipleCoats from './paintRequiredForMultipleCoats';
+import convertAreaToSquareFeet from './convertAreaToSquareFeet';
 
-function main() {
-  const area = calculateCanvasSize("10", "20");
-  const coveragePerLiter = 11.4;
+// Example usage:
+const area = 100;
+const coveragePerLiter = 10;
+const coats = 2;
+const paintingSpeed = 10;
 
-  const paintRequired = paintRequiredCalculator(area, coveragePerLiter);
+// Calculate and log results
+const canvasSize = calculateCanvasSize('10', '100');
+console.log('Canvas Size:', canvasSize);
 
-  console.log(`${paintRequired} is required to cover ${area} of canvas.`);
-}
+const canvasDiagonal = calculateCanvasDiagonal('3', '4');
+console.log('Canvas Diagonal:', canvasDiagonal);
 
-main();
+const paintingTime = estimatePaintingTime(area, paintingSpeed);
+console.log('Painting Time:', paintingTime);
+
+const paintRequired = paintRequiredForMultipleCoats(area, coveragePerLiter, coats);
+console.log('Paint Required for Multiple Coats:', paintRequired);
+
+const areaInFeet = convertAreaToSquareFeet(area);
+console.log('Area in Square Feet:', areaInFeet);
