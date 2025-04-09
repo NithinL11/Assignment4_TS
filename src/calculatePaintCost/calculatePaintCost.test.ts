@@ -20,4 +20,19 @@ describe('calculatePaintCost', () => {
     expect(calculatePaintCost(10, -5)).toBe(-50);
     expect(calculatePaintCost(-10, -5)).toBe(50);
   });
+
+  test('should handle decimal values correctly', () => {
+    expect(calculatePaintCost(2.5, 4.8)).toBeCloseTo(12);
+    expect(calculatePaintCost(1.1, 3.3)).toBeCloseTo(3.63);
+  });
+
+  test('should return NaN for non-numeric inputs', () => {
+    expect(calculatePaintCost("ten" as any, 5)).toBeNaN();
+    expect(calculatePaintCost(5, "five" as any)).toBeNaN();
+  });
+
+  test('should return NaN for null or undefined', () => {
+    expect(calculatePaintCost(null as any, 5)).toBeNaN();
+    expect(calculatePaintCost(undefined as any, 5)).toBeNaN();
+  });
 });
