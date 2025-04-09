@@ -22,4 +22,18 @@ describe('calculateCanvasDiagonal', () => {
     expect(calculateCanvasDiagonal('3', 'b')).toBeNaN();
     expect(calculateCanvasDiagonal('a', 'b')).toBeNaN();
   });
+
+  test('should calculate diagonal correctly for decimal values', () => {
+    expect(calculateCanvasDiagonal('3.5', '4.5')).toBeCloseTo(5.70088, 4);
+  });
+
+  test('should handle large numbers without overflow', () => {
+    expect(calculateCanvasDiagonal('1000000', '1000000')).toBeCloseTo(1414213.56, 2);
+  });
+
+  test('should return NaN for null, undefined, or empty string inputs', () => {
+    expect(calculateCanvasDiagonal(null as any, '4')).toBeNaN();
+    expect(calculateCanvasDiagonal(undefined as any, '4')).toBeNaN();
+    expect(calculateCanvasDiagonal('', '4')).toBeNaN();
+  });
 });
