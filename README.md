@@ -1,16 +1,21 @@
-# SENG8120 Modern Automated Testing 
-
-Version: Alpaca
+# SENG8120 Modern Automated Testing
 
 ## Purpose
 
-This repository houses the code we require for examples and assignments.
+This repository contains the code for **Assignment 4**, which demonstrates various techniques in modern automated testing, including full test coverage for multiple modules using **Jest**.
 
 ## Repository Usage
 
-This repository will contain branches of code.
+Clone this repository and navigate to the `src` directory:
 
-Please refer to your instructor's directions on how to use this repository.
+```bash
+git clone git@github.com:NithinL11/Assignment4_TS.git
+cd Assignment4_TS/src
+
+## Prerequisites
+
+Ensure you have **Node.js (v14 or later)** installed on your system.  
+If not, download and install it from [https://nodejs.org](https://nodejs.org).
 
 ## Branch Usage
 
@@ -31,6 +36,13 @@ npm run build
 ```
 
 followed by:
+
+```bash
+npm start
+```
+## Running the Software
+
+To run the main function, use:
 
 ```bash
 npm start
